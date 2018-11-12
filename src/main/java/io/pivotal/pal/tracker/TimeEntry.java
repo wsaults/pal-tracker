@@ -65,4 +65,14 @@ public class TimeEntry {
 
         return isIdEqual && isProjectIdEqual && isUserIdEqual && isDateEqual && isHoursEqual;
     }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (int) (projectId ^ (projectId >>> 32));
+        result = 31 * result + (int) (userId ^ (userId >>> 32));
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + hours;
+        return result;
+    }
 }

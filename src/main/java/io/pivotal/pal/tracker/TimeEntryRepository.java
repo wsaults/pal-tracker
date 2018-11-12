@@ -5,14 +5,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TimeEntryRepository extends Repository {
-    TimeEntry find(long timeEntryId);
+public interface TimeEntryRepository {
+    TimeEntry find(Long id);
 
-    TimeEntry create(TimeEntry timeEntry);
+    TimeEntry create(TimeEntry id);
 
     List<TimeEntry> list();
 
-    TimeEntry update(long timeEntryId, TimeEntry timeEntry);
+    TimeEntry update(Long id, TimeEntry timeEntry);
 
-    void delete(long timeEntryId);
+    void delete(Long id);
 }
